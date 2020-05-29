@@ -24,8 +24,29 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "",
+    password: "root",
+    database: "burger_db"
+});
 
+
+
+connection.connect(function(err){
+    if(err){
+        console.log(`Error connecting: ${err.stack}`);
+        return;
+    }
+    console.log(`Connected as id: ${connection.threadId}`);
+});
+
+
+
+app.get("/", function (request, result){
+    connection.query("SELECT * FROM burgers;", function(err, data){
+        if(err){
+            return result.status(500).end();
+        }
+        result.render("index", {burgers: data});
+    });
 });
 
 
