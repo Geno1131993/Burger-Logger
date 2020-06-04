@@ -15,19 +15,23 @@ app.set("view engine", "handlebars");
 
 
 
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 
 
 
 //Set up connection to database
-var connection = mysql.createConnection({
-    host: "localhost",
-    port: 3306,
-    user: "root",
-    password: "root",
-    database: "burger_db"
-});
-
+if(process.env.JAWSDB_URL){
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+{
+    var connection = mysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "root",
+        database: "burger_db"
+    });
+}
 
 
 connection.connect(function(err){
