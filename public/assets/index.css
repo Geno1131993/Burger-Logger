@@ -1,9 +1,33 @@
 body{
     background-color: purple;
-    height: 100vh;
+    height: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
 }
 
 
 .row{
     background-color: yellow;
+    margin: 20px;
+    padding: 20px;
 }
+
+
+.icon{
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+.burger{
+    padding: 10px;
+}
+
+
+
+.item{
+    margin-left: 5px;
+}
+
